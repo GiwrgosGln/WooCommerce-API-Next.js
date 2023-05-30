@@ -16,7 +16,7 @@ function WooCommerceProducts() {
   useEffect(() => {
     const fetchProducts = async () => {
       let page = 1;
-      const perPage = 100; // Number of products to fetch per page
+      const perPage = 100;
 
       let fetchedProducts = [];
 
@@ -28,7 +28,7 @@ function WooCommerceProducts() {
           });
 
           if (response.data.length === 0) {
-            // No more products to fetch
+            // No more products
             break;
           }
 
@@ -47,7 +47,6 @@ function WooCommerceProducts() {
   }, []);
 
   const addToCart = (productId) => {
-    // Add your logic to add the product to the cart
     console.log(`Product ${productId} added to cart`);
   };
 

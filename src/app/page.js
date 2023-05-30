@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
-      {/* <Posts /> */}
+      <Posts />
       <Mirrorless />
       <WooCommerceProducts />
     </>
