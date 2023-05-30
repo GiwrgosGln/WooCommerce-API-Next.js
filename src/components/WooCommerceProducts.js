@@ -52,10 +52,10 @@ function WooCommerceProducts() {
   };
 
   return (
-    <div className="flex justify-center py-10 px-10 bg-gradient-to-r from-orange-500 to-purple-500 w-screen h-full">
+    <div className="flex justify-center bg-black w-full h-full">
       <div className="grid grid-cols-3 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => (
-          <div key={product.id} className="bg-white p-4 rounded-lg">
+          <div key={product.id} className="bg-product p-4 rounded-lg">
             <div className="flex justify-center items-center">
               <img
                 src={product.images[0].src}
@@ -64,18 +64,18 @@ function WooCommerceProducts() {
               />
             </div>
             <div className="grid grid-cols-1 justify-start">
-              <h2 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-800 text-center h-16">
+              <h2 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-200 text-center h-16">
                 {product.name}
               </h2>
-              <p className="text-gray-600 text-center font-bold">
+              <p className="text-gray-200 text-center font-bold">
                 Category: {product.categories[0].name}
               </p>
-              <p className="text-gray-600 text-center">
+              <p className="text-gray-200 text-center">
                 Price: {product.price}
               </p>
               <button
                 onClick={() => addToCart(product.id)}
-                className="bg-gradient-to-r from-orange-500 to-purple-600 hover:bg-gradint-to-r hover:from-orange-600 hover:to-purple-700 text-white font-bold py-2 px-4 rounded mt-4"
+                className="bg-gradient-to-r from-gray-400 to-gray-500 rounded-full text-white font-bold py-2 px-4 mt-4"
               >
                 Add to Cart
               </button>
