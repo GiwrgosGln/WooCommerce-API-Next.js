@@ -11,7 +11,7 @@ const Posts = () => {
   const fetchPosts = async () => {
     try {
       const response = await fetch(
-        "http://localhost/wootheme/wp-json/wp/v2/posts?_embed"
+        "http://localhost/woocommerce-api/wp-json/wp/v2/posts?_embed"
       );
       const data = await response.json();
       setPosts(data);

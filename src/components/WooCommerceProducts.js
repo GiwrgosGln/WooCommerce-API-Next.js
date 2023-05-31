@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 
 const WooCommerce = new WooCommerceRestApi({
-  url: "http://localhost/wootheme",
-  consumerKey: "ck_c63b931dd8442755f2f670a2fdf9cb63884d1aa9",
-  consumerSecret: "cs_63e18d619a9ebbb9e68d9c6edecf42c056f4ad5c",
+  url: "http://localhost/woocommerce-api/wordpress",
+  consumerKey: "ck_f27f01e18801e25dbda413e4e52a919eefc4b428",
+  consumerSecret: "cs_7452cdad8527f8ee2a9d7ee9d7fccf003fa48eea",
   version: "wc/v3",
   queryStringAuth: true,
 });
@@ -17,11 +17,10 @@ function WooCommerceProducts() {
     const fetchProducts = async () => {
       let page = 1;
       const perPage = 100;
-
       let fetchedProducts = [];
 
-      while (true) {
-        try {
+      try {
+        while (true) {
           const response = await WooCommerce.get("products", {
             per_page: perPage,
             page,
@@ -34,10 +33,10 @@ function WooCommerceProducts() {
 
           fetchedProducts = [...fetchedProducts, ...response.data];
           page++;
-        } catch (error) {
-          console.log(error.response.data);
-          break;
         }
+      } catch (error) {
+        console.log(error.response.data);
+        // Handle the error
       }
 
       setProducts(fetchedProducts);
@@ -51,7 +50,7 @@ function WooCommerceProducts() {
   };
 
   return (
-    <div className="flex justify-center bg-black w-full h-full">
+    <div className="flex justify-center bg-black w-full h-full pb-10">
       <div className="grid grid-cols-3 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => (
           <div key={product.id} className="bg-product p-4 rounded-lg">
@@ -59,7 +58,7 @@ function WooCommerceProducts() {
               <img
                 src={product.images[0].src}
                 alt={product.name}
-                className="w-80 mb-4 h-72"
+                className="w-80 mb-4 h-64 transition-transform duration-300 transform-gpu hover:scale-90 hover:cursor-pointer"
               />
             </div>
             <div className="grid grid-cols-1 justify-start">
