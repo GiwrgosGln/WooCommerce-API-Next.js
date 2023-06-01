@@ -60,7 +60,7 @@ function WooCommerceProducts() {
               <img
                 src={product.images[0].src}
                 alt={product.name}
-                className="w-80 mb-4 h-64 transition-transform duration-300 transform-gpu hover:scale-90 hover:cursor-pointer"
+                className="w-80 mb-4 h-64 transition-transform duration-300 transform-gpu scale-75 hover:scale-90 hover:cursor-pointer"
               />
             </div>
             <div className="grid grid-cols-1 justify-start">
