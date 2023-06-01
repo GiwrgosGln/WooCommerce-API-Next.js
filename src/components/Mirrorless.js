@@ -6,8 +6,8 @@ const Mirrorless = () => {
     <div className="grid grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 bg-black sm:px-10 lg:px-20 py-20">
       <motion.div
         initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 0.5 }}
       >
         <div className="text-justify text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-300 text-2xl mx-10 pt-20">
           <h1 className="text-4xl mb-4">Φακοί mirrorless</h1>
@@ -22,9 +22,9 @@ const Mirrorless = () => {
         </div>
       </motion.div>
       <motion.div
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
+        initial={{ opacity: 0, x: 80 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 0.5 }}
       >
         <div>
           <iframe
