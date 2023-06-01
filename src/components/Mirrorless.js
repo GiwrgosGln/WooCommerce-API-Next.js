@@ -5,7 +5,7 @@ const Mirrorless = () => {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 bg-black sm:px-10 lg:px-20 py-20">
       <motion.div
-        initial={{ opacity: 0, x: -100 }}
+        initial={{ opacity: 0, x: -80 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, delay: 0.5 }}
       >
