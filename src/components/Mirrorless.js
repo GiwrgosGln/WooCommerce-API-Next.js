@@ -35,7 +35,7 @@ const Mirrorless = () => {
             frameborder="0"
             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
-            className="w-full h-96 rounded-xl"
+            className="w-full h-96 rounded-xl shadow-xl shadow-gray-800"
           ></iframe>
         </div>
       </motion.div>
