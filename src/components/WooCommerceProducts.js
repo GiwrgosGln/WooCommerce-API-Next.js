@@ -12,6 +12,8 @@ const WooCommerce = new WooCommerceRestApi({
 
 function WooCommerceProducts() {
   const [products, setProducts] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -65,17 +67,16 @@ function WooCommerceProducts() {
               <h2 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-200 text-center h-16">
                 {product.name}
               </h2>
-              <p className="text-gray-200 text-center font-bold">
-                Category: {product.categories[0].name}
-              </p>
-              <p className="text-gray-200 text-center">
-                Price: {product.price}
+
+              <p className="text-gray-200 text-left">Τιμή: {product.price}</p>
+              <p className="text-gray-200 text-left font-bold">
+                Κατηγορία: {product.categories[0].name}
               </p>
               <button
                 onClick={() => addToCart(product.id)}
-                className="bg-gradient-to-r from-gray-400 to-gray-500 rounded-full text-white font-bold py-2 px-4 mt-4"
+                className="bg-gradient-to-r from-gray-400 to-gray-500 rounded-full text-white font-bold py-2 px-4 mt-4 hover:shadow-md hover:shadow-gray-200"
               >
-                Add to Cart
+                Προσθήκη στο Καλάθι
               </button>
             </div>
           </div>

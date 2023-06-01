@@ -11,7 +11,7 @@ const Posts = () => {
   const fetchPosts = async () => {
     try {
       const response = await fetch(
-        "http://localhost/woocommerce-api/wp-json/wp/v2/posts?_embed"
+        "http://localhost/woocommerce-api/wordpress/wp-json/wp/v2/posts?_embed"
       );
       const data = await response.json();
       setPosts(data);
@@ -21,10 +21,10 @@ const Posts = () => {
   };
 
   return (
-    <div className="bg-black">
+    <div className="flex justify-center bg-gray-800">
       <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:mx-40 sm:mx-20 gap-6">
         {posts.map((post) => (
-          <div className="mt-4" key={post.id}>
+          <div className="mt-4 bg-gray-700" key={post.id}>
             {post.featured_media &&
               post._embedded &&
               post._embedded["wp:featuredmedia"] && (

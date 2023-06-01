@@ -4,11 +4,9 @@ import { motion } from "framer-motion";
 const Categories = () => {
   const containerVariants = {
     hidden: {
-      x: "100vw",
       opacity: 0,
     },
     visible: {
-      x: 0,
       opacity: 1,
       transition: {
         duration: 2,

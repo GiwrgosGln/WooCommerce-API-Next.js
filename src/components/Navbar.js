@@ -11,9 +11,9 @@ const Navbar = () => {
     >
       <div className="text-white font-bold text-xl">FrameMasters</div>
       <ul className="flex space-x-16">
+        <li className="text-white">Mirrorless</li>
         <li className="text-white">DSLR</li>
-        <li className="text-white">Compact</li>
-        <li className="text-white">Full Frame</li>
+        <li className="text-white">Φακοί</li>
       </ul>
     </motion.nav>
   );
