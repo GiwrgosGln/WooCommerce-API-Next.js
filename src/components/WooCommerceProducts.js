@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 
 const WooCommerce = new WooCommerceRestApi({
@@ -12,7 +13,6 @@ const WooCommerce = new WooCommerceRestApi({
 
 function WooCommerceProducts() {
   const [products, setProducts] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
@@ -47,21 +47,32 @@ function WooCommerceProducts() {
     fetchProducts();
   }, []);
 
-  const addToCart = (productId) => {
-    console.log(`Product ${productId} added to cart`);
+  const addToCart = (productId, productPrice) => {
+    console.log(
+      `Product ${productId} added to cart with price: ${productPrice}`,
+      setTotalPrice(totalPrice + productPrice),
+      console.log(totalPrice)
+    );
   };
 
   return (
-    <div className="flex justify-center bg-black w-full h-full pb-10">
+    <motion.div
+      initial={{ y: 100, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1 }}
+      className="flex justify-center bg-black w-full h-full pb-10"
+    >
       <div className="grid grid-cols-3 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => (
           <div key={product.id} className="bg-product p-4 rounded-lg">
             <div className="flex justify-center items-center">
-              <img
-                src={product.images[0].src}
-                alt={product.name}
-                className="w-80 mb-4 h-64 transition-transform duration-300 transform-gpu scale-75 hover:scale-90 hover:cursor-pointer"
-              />
+              {product.images[0] && (
+                <img
+                  src={product.images[0].src}
+                  alt={product.name}
+                  className="w-80 mb-4 h-64 transition-transform duration-300 transform-gpu scale-75 hover:scale-90 hover:cursor-pointer"
+                />
+              )}
             </div>
             <div className="grid grid-cols-1 justify-start">
               <h2 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-200 text-center h-16">
@@ -73,7 +84,7 @@ function WooCommerceProducts() {
                 Κατηγορία: {product.categories[0].name}
               </p>
               <button
-                onClick={() => addToCart(product.id)}
+                onClick={() => addToCart(product.id, product.price)}
                 className="bg-gradient-to-r from-gray-400 to-gray-500 rounded-full text-white font-bold py-2 px-4 mt-4 hover:shadow-md hover:shadow-gray-200"
               >
                 Προσθήκη στο Καλάθι
@@ -82,7 +93,7 @@ function WooCommerceProducts() {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

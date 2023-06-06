@@ -11,7 +11,7 @@ const Hero = () => {
         className="relative"
       >
         <img
-          src="https://res.allmacwallpaper.com/get/iMac-27-inch-wallpapers/Nikon-camera-2560x1440/3804-10.jpg"
+          src="https://wallpapercrafter.com/sizes/3840x2160/248863-dslr-camera-beside-a-long-lens-in-dark-roomcanon-d.jpg"
           alt="Cover Image with Text"
           className="w-screen h-screen sm:hidden lg:block"
         />

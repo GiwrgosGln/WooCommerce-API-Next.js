@@ -19,7 +19,7 @@ const Categories = () => {
       className="flex justify-center py-20 bg-gray-800"
       variants={containerVariants}
       initial="hidden"
-      animate="visible"
+      whileInView="visible"
     >
       <div className="grid grid-cols-3 gap-8 text-center sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
         <div className="flex-row justify-center text-white bg-gray-700 py-10 rounded-lg cursor-pointer hover:shadow-xl hover:shadow-gray-600">
